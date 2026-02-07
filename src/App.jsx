@@ -7,6 +7,12 @@ import { db } from './db/db.js';
 
 function App() {
 
+  const [data] = useState(db);
+  const [cart, setCart] = useState([]);
+console.log(cart)
+
+
+
  // const [customer, setCustomer] = useState({});
  // const [total, setTotal] = useState(0);
  // const [products, setProducts] = useState([]);
@@ -18,18 +24,17 @@ function App() {
    // const (modal, setModal)=useState(false);
  // }
 
- const [data] = useState(db);
 
  //useEffect(() => {
   //setData(db);
   //}, []);
-console.log(data);
+//console.log(data);
 
 
   return (
     <div>
 
-      <Header></Header>
+      <Header cart = {cart} setCart={setCart} />
 
 
       <main className="container-xl mt-5">
@@ -41,6 +46,9 @@ console.log(data);
               <Card
               key={guitar.id}
               guitar={guitar}
+              cart= {cart}
+              setCart={setCart}
+              
               />
             ))}
           
