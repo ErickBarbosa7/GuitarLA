@@ -1,17 +1,82 @@
-# React + Vite
+# React ⚛️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. ¿Qué es React?
+**React** es una librería de JavaScript para crear interfaces de usuario (UI), principalmente para aplicaciones web.
 
-Currently, two official plugins are available:
+Se basa en:
+- Componentes reutilizables
+- Actualización automática de la vista cuando cambian los datos
+- Flujo de datos en una sola dirección
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 2. ¿Qué es un Componente?
+Un **componente** es una pieza de la interfaz que puede reutilizarse.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Puede representar:
+- Un botón
+- Una tarjeta
+- Un formulario
+- Una página completa
 
-## Expanding the ESLint configuration
+Cada componente:
+- Tiene su propio **estado**
+- Puede recibir **props**
+- Devuelve lo que se va a mostrar en pantalla
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# GuitarLA" 
+---
+
+## 3. State (Estado)
+El **State** es una variable especial en React que determina cómo se comporta y se renderiza un componente.  
+Cuando el **State cambia**, React **actualiza la pantalla automáticamente**.
+
+---
+
+## 3. Props (Propiedades)
+Las **Props** son como argumentos que se pasan de un componente **padre** a un componente **hijo**.
+
+Son de **solo lectura**:  
+El componente hijo **no puede modificarlas**, solo leerlas.
+
+Se usan para:
+- Reutilizar componentes
+- Pasar datos
+- Configurar comportamiento
+
+---
+
+## 3. Array `.map()`
+`.map()` es un método de **JavaScript** que crea un nuevo arreglo transformando cada elemento del arreglo original.
+
+En React, se usa principalmente para:
+- Renderizar listas de componentes
+- Mostrar datos dinámicos en pantalla
+
+---
+
+## 4. `key` (Llave única)
+### ¿Qué es?
+`key` es un **identificador único** que React necesita cuando renderizamos listas usando `.map()`.
+
+### ¿Para qué sirve?
+Ayuda a React a:
+- Saber qué elemento **cambió**
+- Cuál se **agregó**
+- Cuál se **eliminó**
+
+---
+
+## 5. Interpolación
+Las **JSX Expressions** permiten insertar variables, datos o expresiones de JavaScript dentro del JSX usando llaves `{}`.
+
+Se usan para:
+- Mostrar datos en pantalla
+- Llamar variables (`{nombre}`)
+- Evaluar expresiones (`{contador + 1}`)
+- Acceder a props y state
+
+Ejemplo:
+```jsx
+<h1>{nombre}</h1>
+<p>{edad}</p>
+
