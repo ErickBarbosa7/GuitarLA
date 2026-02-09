@@ -2,15 +2,26 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
 import Card from './components/Card';
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 import { db } from './db/db.js';
 
 function App() {
-
+  //crear estado para el carrito
+  const initialCart = () => {
+    const localStorageCart = localStorage.getItem('cart')
+    return localStorageCart ? JSON.parse(localStorageCart) : []
+  }
+  
   const [data] = useState(db);
-  const [cart, setCart] = useState([]);
-console.log(cart)
+  // usar el localStorage para guardar en el carrito
+  const [cart, setCart] = useState(initialCart);
+  //sin usar localStorage
+  //const [cart, setCart] = useState([]);
 
+  // console.log(cart)
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
 
  // const [customer, setCustomer] = useState({});
@@ -33,9 +44,7 @@ console.log(cart)
 
   return (
     <div>
-
       <Header cart = {cart} setCart={setCart} />
-
 
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
