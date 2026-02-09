@@ -79,4 +79,36 @@ Ejemplo:
 ```jsx
 <h1>{nombre}</h1>
 <p>{edad}</p>
+```
+## 6. Array .findIndex()
+Es un método de JavaScript que devuelve el índice (posición numérica) del primer elemento de un array que cumpla una condición.
 
+- Retorna el índice (0, 1, etc.) si el elemento ya existe.
+
+- Retorna -1 si el elemento no existe.
+
+Lógica implementada:
+
+- Buscamos si la guitarra ya está en el carrito con .findIndex().
+
+- Si existe (>= 0): Creamos una copia del carrito y aumentamos la cantidad en esa posición específica.
+
+- Si no existe (-1): Agregamos la guitarra nueva al arreglo.
+
+Ejemplo:
+```
+const itemExist = cart.findIndex(guitar => guitar.id === item.id)
+
+if(itemExist >= 0) {
+    // Existe: Aumentamos cantidad sin mutar el original directo
+    const updatedCart = [...cart]
+    updatedCart[itemExist].quantity++
+    setCart(updatedCart)
+} else {
+    // No existe: Agregamos item nuevo
+    item.quantity = 1
+    setCart([...cart, item])
+}
+```
+
+![Imfine](./public/img/imfine.jpg)
